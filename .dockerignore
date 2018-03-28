@@ -5,4 +5,5 @@ docker-compose.yml
 Vagrantfile
 node_modules/
 images/
-PITCHME.*
+test/
+screenshots/

@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 
-describe('sample test', function () {
+describe('Login script', function () {
   it('should work', async function () {
       
     const {page,config,screenshot} = global;

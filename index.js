@@ -1,15 +1,14 @@
 
-const path = require("path");
 const puppeteer = require('puppeteer');
 const puppeteerOptions = require('./puppeteer-options');
 // Globals
+global={};
 global.config = Object.assign({
   url: 'http://www.google.com'
 }, process.env);
 global.state = {
   screenshotIndex: 0
 };
-
 before(async function (){
   
   global.browser = await puppeteer.launch(puppeteerOptions);
@@ -18,12 +17,10 @@ before(async function (){
   global.screenshot = async function (name) {
       global.state.screenshotIndex++;
       return global.page.screenshot({
-          path: path.join(__dirname,
-          `/screenshots/${global.config.EMAIL}_${global.state.screenshotIndex}.png`),
+          path: `/screenshots/${global.config.EMAIL}_${global.state.screenshotIndex}.png`,
           fullPage: true
       })
   }
-  
 })    
 
 beforeEach(function(){
