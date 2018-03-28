@@ -1,4 +1,24 @@
-module.exports = async function(page,config,screenshot){
+const { expect } = require('chai');
+
+describe('sample test', function () {
+  it('should work', async function () {
+      
+    const {page,config,screenshot} = global;
+    await page.goto(config.url, { waitUntil: 'networkidle2' });
+    await screenshot();
+    expect(config.url).to.equal('http://www.google.com');
+    expect(true).to.be.true;
+  });
+});
+
+/*
+    const {page,config,screenshot} = this;
+    
+    console.log(global.config)
+    await page.goto(config.URL, { waitUntil: 'networkidle2' });
+    
+    
+    return true;
     
     
     await page.goto(config.URL, { waitUntil: 'networkidle2' });
@@ -32,4 +52,4 @@ module.exports = async function(page,config,screenshot){
     
     return true;
     
-}
+}*/
