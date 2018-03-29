@@ -1,4 +1,4 @@
 module.exports = {
-    url:'http://google.com',
+    url:'http://www.google.com',
     email:'test@test.com'
 }

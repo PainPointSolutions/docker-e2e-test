@@ -11,8 +11,9 @@ global={
 };
 global.screenshot = function(page, filename, config = {}) {
   global.state.screenshotIndex++;
-  let screenshotPath = `/screenshots/${global.config.email}_${global.state.screenshotIndex}.png`;
-  if (filename) { screenshotPath = `/screenshots/${filename}`; }
+  let folder = `${process.env.ROOT}/screenshots/`
+  let screenshotPath = `${folder}${global.config.email}_${global.state.screenshotIndex}.png`;
+  if (filename) { screenshotPath = `${folder}${filename}`; }
   return page.screenshot(Object.assign({
     path: screenshotPath,
     fullPage: true
@@ -22,6 +23,7 @@ global.screenshot = function(page, filename, config = {}) {
 
 before(async function (){
   global.browser = await puppeteer.launch(puppeteerOptions);
+  global.page = await global.browser.newPage();
 })    
 
 beforeEach(async function(){
