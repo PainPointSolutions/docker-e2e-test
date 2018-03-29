@@ -1,4 +1,4 @@
-
+const filenamify = require('filenamify');
 const puppeteer = require('puppeteer');
 const puppeteerOptions = require('./config/puppeteer-options');
 const shared = require('./config/shared.config');
@@ -13,7 +13,9 @@ global.screenshot = function(page){
   return async function(filename, config = {}) {
   let folder = (process.env.ROOT||'')+'/screenshots/';
   let screenshotPath;
-  if (filename) { screenshotPath = `${folder}${filename}.png`; }
+  if (filename) { 
+    screenshotPath = `${folder}${filenamify(filename)}.png`; 
+  }
   else {
     global.state.screenshotIndex++;
     screenshotPath = `${folder}${global.config.email}_${global.state.screenshotIndex}.png`;
