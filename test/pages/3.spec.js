@@ -1,15 +1,18 @@
-const chai = require("chai");
-var expect = chai.expect;
-module.exports = async function(){
-    
-    const {page,config,screenshot} = this;
-    it('test 3',async()=>{
-        
-        console.log("Test #3");
-        expect(1).to.equal(1);
-        
-    })
-    
+const { expect } = require('chai');
+
+describe('test 3', function() {
 
     
-}
+    it('should visit chrome', async function() {
+
+        const {screenshot} = global;
+        await this.page.goto('https://www.google.com/chrome/',{ waitUntil: 'networkidle2' });
+        
+        const title = await this.page.evaluate(() => document.querySelector('h1').innerText);
+        expect(title).to.equal('Browse fast');
+        await screenshot(this.page);
+
+    });
+
+
+})
