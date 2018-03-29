@@ -1,5 +1,6 @@
 module.exports = {
     // headless: false,
+    // dumpio: true,
     slowMo: 100,
     timeout: 20000,
     ignoreHTTPSErrors: true,
