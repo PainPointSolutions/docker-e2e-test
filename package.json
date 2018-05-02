@@ -1,6 +1,6 @@
 {
   "name": "puppeteer-mocha",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Starter kit for automated browser testing of external sites using puppeteer with mocha & chai.",
   "main": "index.js",
   "scripts": {
@@ -12,9 +12,11 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "node-fetch": "^2.1.2",
     "chai": "^4.1.2",
     "filenamify": "^2.0.0",
-    "mocha": "^5.0.5"
+    "mocha": "^5.0.5",
+    "mochawesome": "^3.0.1"
   },
   "devDependencies": {
     "puppeteer": "^1.1.1"
