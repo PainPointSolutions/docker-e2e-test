@@ -7,4 +7,6 @@ node_modules/
 images/
 test/
 screenshots/
+yarn.lock
+package-lock.json
 config/shared.config.js

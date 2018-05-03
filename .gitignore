@@ -60,3 +60,6 @@ typings/
 ##
 screenshots/*
 !screenshots/.keep
+
+yarn.lock
+package-lock.json
