@@ -2,6 +2,7 @@ const filenamify = require('filenamify');
 const puppeteer = require('puppeteer');
 const puppeteerOptions = require('./config/puppeteer-options');
 const shared = require('./config/shared.config');
+const addContext = require('mochawesome/addContext');
 
 // Globals
 global={
@@ -10,7 +11,7 @@ global={
   state:{ screenshotIndex: 0 }
 };
 global.screenshot = function(page){ 
-  return async function(filename, config = {}) {
+  return async function(filename, ctx, config = {}) {
   let folder = (process.env.ROOT||'')+'/screenshots/';
   let screenshotPath;
   if (filename) { 
@@ -20,6 +21,7 @@ global.screenshot = function(page){
     global.state.screenshotIndex++;
     screenshotPath = `${folder}${global.config.email}_${global.state.screenshotIndex}.png`;
   }
+  addContext(ctx,filename+'.png');
   return page.screenshot(Object.assign({
     path: screenshotPath,
     fullPage: true
