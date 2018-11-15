@@ -1,4 +1,4 @@
-FROM alekzonder/puppeteer:1.8.0
+FROM alekzonder/puppeteer:1.6.0
 
 VOLUME /app/config
 VOLUME /app/test
