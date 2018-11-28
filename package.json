@@ -4,7 +4,7 @@
   "description": "Starter kit for automated browser testing of external sites using puppeteer with mocha & chai.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --opts ./config/mocha.opts ./index.js ./test/*.js ./test/**/*.js"
+    "test": "mkdir -p $SCREENSHOT_DIR && mocha --opts ./config/mocha.opts ./index.js ./test/*.js ./test/**/*.js"
   },
   "keywords": [
     "chrome",
