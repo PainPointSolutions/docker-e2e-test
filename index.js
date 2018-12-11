@@ -12,7 +12,7 @@ global={
 };
 global.screenshot = function(page){ 
   return async function(filename, ctx, config = {}) {
-  let folder = (process.env.ROOT||'')+'/screenshots/';
+  let folder = (process.env.ROOT||'')+process.env.SCREENSHOT_DIR;
   let screenshotPath;
   if (filename) { 
     screenshotPath = `${folder}${filenamify(filename)}.png`; 
